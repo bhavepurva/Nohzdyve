@@ -6,7 +6,7 @@ from pygame import mixer
 pygame.init()
 
 screen = pygame.display.set_mode((500, 650))
-icon = pygame.image.load('b2.png')
+icon = pygame.image.load('images/b2.png')
 pygame.display.set_icon(icon)
 pygame.display.set_caption("NOHZDYVE")
 clock = pygame.time.Clock()
@@ -22,18 +22,17 @@ clothy_change = 0
 
 
 def cloth(x, y):
-    screen.blit(pygame.image.load('bgcloth.png'), (x, y))
-    screen.blit(pygame.image.load('bgcloth2.png'), (x, y + 500))
-    screen.blit(pygame.image.load('bgcloth3.png'), (x, y + 1000))
-    screen.blit(pygame.image.load('bgcloth4.png'), (x, y + 1500))
-    screen.blit(pygame.image.load('bgcloth5.png'), (x, y + 2000))
+    screen.blit(pygame.image.load('images/bgcloth.png'), (x, y))
+    screen.blit(pygame.image.load('images/bgcloth2.png'), (x, y + 500))
+    screen.blit(pygame.image.load('images/bgcloth3.png'), (x, y + 1000))
+    screen.blit(pygame.image.load('images/bgcloth4.png'), (x, y + 1500))
+    screen.blit(pygame.image.load('images/bgcloth5.png'), (x, y + 2000))
 
 
-
-p1 = pygame.image.load('p1.png')
-p2 = pygame.image.load('p2.png')
-y1 = pygame.image.load('y1.png')
-y2 = pygame.image.load('y2.png')
+p1 = pygame.image.load('images/p1.png')
+p2 = pygame.image.load('images/p2.png')
+y1 = pygame.image.load('images/y1.png')
+y2 = pygame.image.load('images/y2.png')
 
 px = 50
 py = 500
@@ -96,7 +95,7 @@ def collisiong(playerx, playery, jawgx, jawgy):
 
 
 def player(x, y):
-    screen.blit(pygame.image.load('man.png'), (x, y))
+    screen.blit(pygame.image.load('images/man.png'), (x, y))
 
 
 fan1y = 250
@@ -107,19 +106,19 @@ fany1_change = 0
 
 
 def fan(x, y):
-    screen.blit(pygame.image.load('leftfan.png'), (x, y))
+    screen.blit(pygame.image.load('images/leftfan.png'), (x, y))
 
 
 def fan2(x, y):
-    screen.blit(pygame.image.load('rightfan.png'), (x, y))
+    screen.blit(pygame.image.load('images/rightfan.png'), (x, y))
 
 
 def border():
-    screen.blit(pygame.image.load('border.jpg'), (2, 0))
-    screen.blit(pygame.image.load('border.jpg'), (2, 559))
+    screen.blit(pygame.image.load('images/border.jpg'), (2, 0))
+    screen.blit(pygame.image.load('images/border.jpg'), (2, 559))
 
-    screen.blit(pygame.image.load('border1.png'), (468, 0))
-    screen.blit(pygame.image.load('border1.png'), (468, 559))
+    screen.blit(pygame.image.load('images/border1.png'), (468, 0))
+    screen.blit(pygame.image.load('images/border1.png'), (468, 559))
 
 
 ax = -22
@@ -128,15 +127,15 @@ ay_change = 0
 
 
 def a(x, y):
-    screen.blit(pygame.image.load('ledgeright.png'), (421, y + 70))
-    screen.blit(pygame.image.load('ledgeright.png'), (421, y + 350))
-    screen.blit(pygame.image.load('ledgeleft.png'), (5, y + 70))
-    screen.blit(pygame.image.load('ledgeleft.png'), (5, y + 350))
+    screen.blit(pygame.image.load('images/ledgeright.png'), (421, y + 70))
+    screen.blit(pygame.image.load('images/ledgeright.png'), (421, y + 350))
+    screen.blit(pygame.image.load('images/ledgeleft.png'), (5, y + 70))
+    screen.blit(pygame.image.load('images/ledgeleft.png'), (5, y + 350))
 
-    screen.blit(pygame.image.load('left.png'), (x, y))
-    screen.blit(pygame.image.load('left.png'), (x, y + 600))
-    screen.blit(pygame.image.load('right.png'), (432, y))
-    screen.blit(pygame.image.load('right.png'), (432, y + 600))
+    screen.blit(pygame.image.load('images/left.png'), (x, y))
+    screen.blit(pygame.image.load('images/left.png'), (x, y + 600))
+    screen.blit(pygame.image.load('images/right.png'), (432, y))
+    screen.blit(pygame.image.load('images/right.png'), (432, y + 600))
 
 
 currentimg = 1
@@ -159,10 +158,7 @@ def game_over():
 run = True
 while run:
     screen.fill((0, 0, 0))
-    mixer.music.load('music.mp3')
-    mixer.music.play(-1)
-
-    screen.blit(pygame.image.load('life.png'), (35, 5))
+    screen.blit(pygame.image.load('images/life.png'), (35, 5))
 
     for event in pygame.event.get():
 
@@ -204,8 +200,8 @@ while run:
     collision4 = collisiong(playerx, playery, jawgx, jawgy)
 
     if collision3 or collision4:
-        #playerx = 250
-        #playery = 250
+        # playerx = 250
+        # playery = 250
         life_val -= 1
         mixer.music.load('hit.mp3')
         mixer.music.play(0)
@@ -217,27 +213,27 @@ while run:
 
     if playerx <= 20:
         playerx = 20
-        life_val-=1
+        life_val -= 1
         mixer.music.load('hit.mp3')
         mixer.music.play(0)
 
     if playerx >= 420:
         playerx = 420
-        life_val-=1
+        life_val -= 1
         mixer.music.load('hit.mp3')
         mixer.music.play(0)
 
     if (currentimg == 1):
         screen.blit(p1, (px, py))
         screen.blit(y1, (yx, yy + 100))
-        screen.blit(pygame.image.load('bluejaw1.png'), (jawbx + 50, jawby + 50))
-        screen.blit(pygame.image.load('greenjaw1.png'), (jawgx, jawgy))
+        screen.blit(pygame.image.load('images/bluejaw1.png'), (jawbx + 50, jawby + 50))
+        screen.blit(pygame.image.load('images/greenjaw1.png'), (jawgx, jawgy))
 
     if (currentimg == 2):
         screen.blit(p2, (px, py))
         screen.blit(y2, (yx, yy + 100))
-        screen.blit(pygame.image.load('bluejaw2.png'), (jawbx + 50, jawby + 50))
-        screen.blit(pygame.image.load('greenjaw2.png'), (jawgx, jawgy))
+        screen.blit(pygame.image.load('images/bluejaw2.png'), (jawbx + 50, jawby + 50))
+        screen.blit(pygame.image.load('images/greenjaw2.png'), (jawgx, jawgy))
 
     if (currentimg == 2):
         currentimg = 1
@@ -296,7 +292,7 @@ while run:
 
         playerx_change = 0
         playery_change = 10
-        mixer.music.load('fall.mp3')
+        mixer.music.load('hit.mp3')
         mixer.music.play(0)
 
     playery += playery_change
