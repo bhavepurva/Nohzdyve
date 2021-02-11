@@ -1,3 +1,3 @@
 # Nohzdyve
 
-Recreation of a 2d arcade game inspired from Black Mirror web series.
+Recreation of a 2d arcade game inspired by Black Mirror web series.
